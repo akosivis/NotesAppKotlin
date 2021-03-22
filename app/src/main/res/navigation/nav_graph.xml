@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/allNotesFragment">
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.viselvis.notesappkotlin.fragments.AddNoteFragment"
+        android:label="AddNoteFragment"
+        tools:layout="@layout/fragment_add_note"/>
+    <fragment
+        android:id="@+id/allNotesFragment"
+        android:name="com.viselvis.notesappkotlin.fragments.AllNotesFragment"
+        android:label="AllNotesFragment"
+        tools:layout="@layout/fragment_all_notes">
+        <action
+            android:id="@+id/action_allNotesFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+</navigation>
