@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.viselvis.notesappkotlin.R
+import com.viselvis.notesappkotlin.adapters.NoteListAdapter
 import com.viselvis.notesappkotlin.databinding.FragmentAllNotesBinding
 
 class AllNotesFragment : Fragment() {
@@ -23,6 +25,10 @@ class AllNotesFragment : Fragment() {
         binding.btnAddNote.setOnClickListener {
             binding.root.findNavController().navigate(R.id.action_allNotesFragment_to_addNoteFragment)
         }
+
+        val adapter = NoteListAdapter()
+        binding.rvNotes.adapter = adapter
+        binding.rvNotes.layoutManager = LinearLayoutManager(activity)
 
         return binding.root
     }
