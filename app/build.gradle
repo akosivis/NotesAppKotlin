@@ -65,4 +65,8 @@ dependencies {
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$room_version"
 
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0"
+    // implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+    // annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
 }
