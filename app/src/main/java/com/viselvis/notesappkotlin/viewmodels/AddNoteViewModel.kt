@@ -12,9 +12,7 @@ import java.lang.IllegalArgumentException
 class AddNoteViewModel(private val repository: NoteRepository): ViewModel() {
 
     // hold the Note object to add
-
-
-    private fun saveNote(note: Note) = viewModelScope.launch {
+    fun saveNote(note: Note) = viewModelScope.launch {
         repository.insert(note)
     }
 }

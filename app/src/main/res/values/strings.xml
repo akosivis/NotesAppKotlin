@@ -4,4 +4,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_your_note_here">Add your note here...</string>
     <string name="title">Title!</string>
+    <string name="hint_word">Note...</string>
+    <string name="button_save">Save note</string>
+    <string name="empty_not_saved">Note not saved because it is empty.</string>
+    <string name="add_word">Add note</string>
+
 </resources>

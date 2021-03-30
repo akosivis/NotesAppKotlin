@@ -1,9 +1,6 @@
 package com.viselvis.notesappkotlin.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
 import com.viselvis.notesappkotlin.database.Note
 import com.viselvis.notesappkotlin.database.NoteRepository
 import com.viselvis.notesappkotlin.fragments.AddNoteFragment
@@ -16,7 +13,7 @@ class AllNotesViewModel(private val repository: NoteRepository) : ViewModel() {
 
 class AllNotesViewModelFactory(private val repository: NoteRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(AllNotesFragment::class.java)) {
+        if (modelClass.isAssignableFrom(AllNotesViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return AllNotesViewModel(repository) as T
         }
