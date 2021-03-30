@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout >
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
 
     </data>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -13,24 +13,41 @@
         android:padding="10dp">
 
         <EditText
-            android:id="@+id/tv_title"
+            android:id="@+id/edt_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:text="@string/title"/>
 
         <ScrollView
             android:layout_marginTop="20dp"
-            android:layout_below="@id/tv_title"
+            android:layout_below="@id/edt_title"
             android:id="@+id/scr_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/edt_title"
+            app:layout_constraintStart_toStartOf="parent">
+
             <EditText
-                android:id="@+id/tv_content"
+                android:id="@+id/edt_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/add_your_note_here"/>
+
         </ScrollView>
-    </RelativeLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_addNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_baseline_note_add_24"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
