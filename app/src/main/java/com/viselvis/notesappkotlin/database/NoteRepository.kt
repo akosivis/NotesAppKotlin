@@ -8,8 +8,8 @@ class NoteRepository(private val noteDatabaseDao: NoteDatabaseDao) {
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun insert(note: Note) {
-        noteDatabaseDao.insertNote(note)
+    suspend fun insert(note: Note): Long {
+        return noteDatabaseDao.insertNote(note)
     }
 
 }

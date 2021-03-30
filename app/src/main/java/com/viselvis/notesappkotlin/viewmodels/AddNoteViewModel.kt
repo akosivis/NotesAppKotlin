@@ -19,7 +19,7 @@ class AddNoteViewModel(private val repository: NoteRepository): ViewModel() {
 
 class AddNoteViewModelFactory(private val repository: NoteRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(AddNoteFragment::class.java)) {
+        if (modelClass.isAssignableFrom(AddNoteViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return AddNoteViewModel(repository) as T
         }
