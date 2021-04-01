@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface NoteDatabaseDao {
     @Insert
-    fun insertNote(note: Note)
+    suspend fun insertNote(note: Note): Long
 
     @Update
     fun updateNote(note: Note)

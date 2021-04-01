@@ -1,6 +1,7 @@
 package com.viselvis.notesappkotlin.database
 
 import androidx.annotation.WorkerThread
+import androidx.lifecycle.LiveData
 import kotlinx.coroutines.flow.Flow
 
 class NoteRepository(private val noteDatabaseDao: NoteDatabaseDao) {
@@ -8,8 +9,8 @@ class NoteRepository(private val noteDatabaseDao: NoteDatabaseDao) {
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun insert(note: Note) {
-        noteDatabaseDao.insertNote(note)
+    suspend fun insert(note: Note): Long {
+        return noteDatabaseDao.insertNote(note)
     }
 
 }

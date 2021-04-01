@@ -8,7 +8,17 @@
         android:id="@+id/addNoteFragment"
         android:name="com.viselvis.notesappkotlin.fragments.AddNoteFragment"
         android:label="AddNoteFragment"
-        tools:layout="@layout/fragment_add_note"/>
+        tools:layout="@layout/fragment_add_note">
+        <action
+            android:id="@+id/action_addNoteFragment_to_allNotesFragment"
+            app:destination="@id/allNotesFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/allNotesFragment"/>
+    </fragment>
     <fragment
         android:id="@+id/allNotesFragment"
         android:name="com.viselvis.notesappkotlin.fragments.AllNotesFragment"

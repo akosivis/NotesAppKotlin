@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.viselvis.notesappkotlin.R
 import com.viselvis.notesappkotlin.application.NoteApplication
 import com.viselvis.notesappkotlin.database.Note
@@ -33,6 +35,17 @@ class AddNoteFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_add_note, container, false)
         val binding: FragmentAddNoteBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_add_note, container, false)
+
+        addNoteViewModel.isDataInserted.observe(viewLifecycleOwner, Observer { isSuccess ->
+            if (!isSuccess.equals(-1)) {
+                // go back to the allnotes fragment
+                Toast.makeText(context, "Insertion is successful!", Toast.LENGTH_LONG).show()
+                binding.root.findNavController().navigate(R.id.action_addNoteFragment_to_allNotesFragment)
+                // addNoteViewModel.resetInsertChecker()
+            } else {
+                Toast.makeText(context, "Insertion not successful!", Toast.LENGTH_LONG).show()
+            }
+        })
 
         binding.btnAddNote.setOnClickListener {
             if ( !TextUtils.isEmpty(binding.edtTitle.text) && !TextUtils.isEmpty(binding.edtContent.text) ) {
